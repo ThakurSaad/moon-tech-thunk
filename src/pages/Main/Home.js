@@ -8,14 +8,13 @@ const Home = () => {
   const filters = useSelector((state) => state.filter.filters);
   const { brands, stock } = filters;
   const dispatch = useDispatch();
+  const activeClass = "text-white  bg-indigo-500 border-white";
 
   useEffect(() => {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => setProducts(data.data));
   }, []);
-
-  const activeClass = "text-white  bg-indigo-500 border-white";
 
   let content;
 
